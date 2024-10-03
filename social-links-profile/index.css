@@ -142,14 +142,6 @@ table {
 }
 
 :root {
-	/* - Green: hsl(75, 94%, 57%)
-
-- White: hsl(0, 0%, 100%)
-
-- Grey 700: hsl(0, 0%, 20%)
-- Grey 800: hsl(0, 0%, 12%)
-- Grey 900: hsl(0, 0%, 8%) */
-
 	--green: hsl(75, 94%, 57%);
 	--white: hsl(0, 0%, 100%);
 	--grey700: hsl(0, 0%, 20%);
@@ -163,6 +155,7 @@ table {
 
 .main {
   font-family: 'Inter', sans-serif;
+	font-size: var(--font-size-large);
 	background-color: var(--grey900);
 	height: 100vh;
 	width: 100%;
@@ -173,8 +166,7 @@ table {
 
 .card {
 	background-color: var(--grey800);
-	width: 300px;
-	height: 500px;
+	width: 350px;
 	display: flex;
 	flex-direction: column;
 	row-gap: 30px;
@@ -192,23 +184,46 @@ table {
 .info {
 	display: flex;
 	flex-direction: column;
-	row-gap: 4px;
+	row-gap: 16px;
 	align-items: center;
 }
 
-button {
+.info>h1 {
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.info>h2 {
+	color: var(--green);
+	font-weight: 600;
+	font-size: var(--font-size-large);
+}
+
+a {
 	width: 100%;
 	border: 0;
 	outline: 0;
-	border-radius: 4px;
+	border-radius: 8px;
 	background-color: var(--grey700);
 	color: white;
 	font-weight: 500;
 	display: block;
 	transition: all 200ms ease-in-out;
+
+	padding: 15px 0;
+	text-align: center;
+	cursor: pointer;
+	font-weight: 600;
 }
 
-button:hover {
+a:hover {
 	background-color: var(--green);
 	color: var(--grey700);
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+	width: 100%;
 }
