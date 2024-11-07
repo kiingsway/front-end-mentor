@@ -181,25 +181,32 @@ table {
 	max-width: 80px;
 }
 
+.card>span {
+	text-align: center;
+}
+
 .info {
 	display: flex;
 	flex-direction: column;
 	row-gap: 16px;
 	align-items: center;
+	text-rendering: optimizeLegibility;
 }
 
 .info>h1 {
 	font-size: 30px;
 	font-weight: 600;
+	text-align: center;
 }
 
 .info>h2 {
 	color: var(--green);
 	font-weight: 600;
 	font-size: var(--font-size-large);
+	text-align: center;
 }
 
-a {
+.links>a {
 	width: 100%;
 	border: 0;
 	outline: 0;
