@@ -187,33 +187,21 @@ button {
 }
 
 body {
-  padding: 20px;
+  font-family: 'HankenGrotesk', sans-serif;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: flex-start;
 }
 
 main {
-  margin: 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(150, 150, 150, 0.2) 20px 20px 30px 0px;
   border-radius: 20px;
-}
-
-@media (min-width: 376px) {
-  main {
-    flex-direction: row;
-  }
-}
-
-button {
-  border-radius: 20px;
-  background: linear-gradient(to bottom, var(--light-slate-blue), var(--light-royal-blue));
-  padding: 10px 60px;
-  color: var(--white);
-  transition: all 100ms ease-in-out;
-}
-
-button:hover {
-  background: linear-gradient(to bottom, var(--dark-gray-blue), var(--dark-gray-blue));
+  max-width: 550px;
 }
 
 .result {
@@ -222,12 +210,46 @@ button:hover {
   align-items: center;
   background: linear-gradient(to bottom, var(--light-slate-blue), var(--light-royal-blue));
   color: var(--white);
-  border-radius: 20px;
+  border-radius: 0 0 20px 20px;
+  flex: 1 0 50%;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  row-gap: 25px;
 }
+
+@media (min-width: 376px) {
+  main {
+    flex-direction: row;
+    margin: 20px;
+  }
+
+  body {
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .result {
+    border-radius: 20px;
+  }
+}
+
+button {
+  border-radius: 20px;
+  padding: 13px 60px;
+  color: var(--white);
+  background: linear-gradient(to bottom, var(--dark-gray-blue), var(--dark-gray-blue));
+  transition: all 100ms ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(to bottom, var(--light-slate-blue), var(--light-royal-blue));
+}
+
 
 .result-header {
   text-align: center;
   color: var(--light-lavender);
+  font-weight: 600;
 }
 
 .result-number {
@@ -235,58 +257,110 @@ button:hover {
   flex-direction: column;
   align-items: center;
   border-radius: 50%;
-  padding: 20px;
+  padding: 40px;
   background: linear-gradient(to bottom, var(--violet-blue), var(--persian-blue));
-
-
+  row-gap: 5px;
+  aspect-ratio: 1 / 1;
+  /* Define uma proporção de 1:1 para largura e altura */
 }
 
-.score {}
+.score {
+  font-weight: 600;
+  font-size: 50px;
+}
 
 .total {
   color: var(--light-lavender);
+  font-size: 14px;
 }
 
-.score-text {}
+.score-text {
+  font-size: 24px;
+  font-weight: 600;
+}
 
 .score-info {
   text-align: center;
-  color: var(--pale-blue);
+  color: var(--light-lavender);
+  font-size: 14px;
+  line-height: 1.3em;
 }
 
 .summary {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  flex: 1 0 50%;
+  padding: 30px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.sum-header {
+  font-weight: 600;
+  color: var(--dark-gray-blue);
 }
 
 .reaction {
-  background-color: var(--light-red);
+  color: var(--light-red);
+  background-color: color-mix(in srgb, var(--light-red) 10%, transparent 80%);
 }
 
 .memory {
-  background-color: var(--orangey-yellow);
+  color: var(--orangey-yellow);
+  background-color: color-mix(in srgb, var(--orangey-yellow) 10%, transparent 80%);
 }
 
 .verbal {
-  background-color: var(--green-teal);
+  color: var(--green-teal);
+  background-color: color-mix(in srgb, var(--green-teal) 10%, transparent 80%);
 }
 
 .visual {
-  background-color: var(--cobalt-blue);
+  color: var(--cobalt-blue);
+  background-color: color-mix(in srgb, var(--cobalt-blue) 10%, transparent 80%);
+}
+
+.scores {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 
 .sum-result {
   display: flex;
   flex-direction: row;
   border-radius: 10px;
+  justify-content: space-between;
+  padding: 14px;
+  align-items: center;
 }
 
-.sum-result-icon {}
+.sum-result-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+}
 
-.sum-result-title {}
+.sum-result-icon {
+  font-size: 14px;
+}
+
+.sum-result-title {
+  font-weight: bold;
+}
 
 .sum-result-score {}
 
-.total-score {}
+.total-score {
+  color: var(--dark-gray-blue);
+  font-weight: bold;
+}
 
-.total-total {}
+.total-total {
+  color: black;
+  opacity: 0.4;
+  font-weight: bold;
+
+}
