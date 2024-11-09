@@ -277,7 +277,6 @@ button {
   padding: 14px 60px;
   color: var(--white);
   background: linear-gradient(to bottom, var(--dark-gray-blue), var(--dark-gray-blue));
-  transition: all 100ms ease-in-out;
   font-weight: 500;
   font-size: 16px;
 }
