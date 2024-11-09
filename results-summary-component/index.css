@@ -161,10 +161,25 @@ button {
 
 @font-face {
   font-family: 'HankenGrotesk';
-  src: url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
+  src: url('assets/fonts/static/HankenGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  src: url('assets/fonts/static/HankenGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  src: url('assets/fonts/static/HankenGrotesk-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 
 :root {
   --white: hsl(0, 0%, 100%);
@@ -195,6 +210,7 @@ body {
   height: 100vh;
   justify-content: flex-start;
   letter-spacing: 0.1px;
+  font-size: 18px;
 }
 
 main {
@@ -202,21 +218,28 @@ main {
   flex-direction: column;
   box-shadow: rgba(150, 150, 150, 0.2) 20px 20px 30px 0px;
   border-radius: 20px;
-  max-width: 550px;
+  max-width: 700px;
+  height: 475px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 0 50%;
+  padding: 40px 45px;
+  box-sizing: border-box;
 }
 
 .result {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background: linear-gradient(to bottom, var(--light-slate-blue), var(--light-royal-blue));
   color: var(--white);
-  border-radius: 0 0 20px 20px;
-  flex: 1 0 50%;
-  padding: 30px 40px;
-  box-sizing: border-box;
+  border-radius: 0 0 25px 25px;
   row-gap: 25px;
 }
+
+.summary {}
 
 @media (min-width: 376px) {
   main {
@@ -230,27 +253,33 @@ main {
   }
 
   .result {
-    border-radius: 20px;
+    border-radius: 25px;
   }
 }
 
 button {
-  border-radius: 20px;
-  padding: 11px 60px;
+  border-radius: 30px;
+  padding: 14px 60px;
   color: var(--white);
   background: linear-gradient(to bottom, var(--dark-gray-blue), var(--dark-gray-blue));
   transition: all 100ms ease-in-out;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 button:hover {
   background: linear-gradient(to bottom, var(--light-slate-blue), var(--light-royal-blue));
 }
 
+.header-title {
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  font-size: 22px;
+}
 
 .result-header {
   text-align: center;
   color: var(--light-lavender);
-  font-weight: 600;
 }
 
 .result-number {
@@ -258,67 +287,56 @@ button:hover {
   flex-direction: column;
   align-items: center;
   border-radius: 50%;
-  padding: 40px;
+  padding: 50px;
   background: linear-gradient(to bottom, var(--violet-blue), var(--persian-blue));
   row-gap: 5px;
   aspect-ratio: 1 / 1;
 }
 
 .score {
-  font-weight: 600;
-  font-size: 50px;
+  font-size: 70px;
+  font-weight: bold;
 }
 
 .total {
   color: var(--light-lavender);
-  font-size: 14px;
+  opacity: 0.6;
 }
 
 .score-text {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 0.8px;
 }
 
 .score-info {
   text-align: center;
   color: var(--light-lavender);
-  font-size: 14px;
   line-height: 1.3em;
 }
 
-.summary {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1 0 50%;
-  padding: 30px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
 .sum-header {
-  font-weight: 600;
   color: var(--dark-gray-blue);
 }
 
 .reaction {
   color: var(--light-red);
-  background-color: color-mix(in srgb, var(--light-red) 10%, transparent 80%);
+  background-color: color-mix(in srgb, var(--light-red) 5%, transparent);
 }
 
 .memory {
   color: var(--orangey-yellow);
-  background-color: color-mix(in srgb, var(--orangey-yellow) 10%, transparent 80%);
+  background-color: color-mix(in srgb, var(--orangey-yellow) 5%, transparent);
 }
 
 .verbal {
   color: var(--green-teal);
-  background-color: color-mix(in srgb, var(--green-teal) 10%, transparent 80%);
+  background-color: color-mix(in srgb, var(--green-teal) 5%, transparent);
 }
 
 .visual {
   color: var(--cobalt-blue);
-  background-color: color-mix(in srgb, var(--cobalt-blue) 10%, transparent 80%);
+  background-color: color-mix(in srgb, var(--cobalt-blue) 5%, transparent);
 }
 
 .scores {
@@ -332,9 +350,9 @@ button:hover {
   flex-direction: row;
   border-radius: 8px;
   justify-content: space-between;
-  padding: 13px;
+  padding: 18px 13px;
   align-items: center;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .sum-result-label {
@@ -345,11 +363,11 @@ button:hover {
 }
 
 .sum-result-icon {
-  height: 14px;
+  /* height: 16px; */
 }
 
 .sum-result-title {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .sum-result-score {
