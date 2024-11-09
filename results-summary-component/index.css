@@ -161,7 +161,7 @@ button {
 
 @font-face {
   font-family: 'HankenGrotesk';
-  src: url('/fonts/HankenGrotesk-VariableFont_wght.ttf') format('truetype');
+  src: url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -194,6 +194,7 @@ body {
   align-items: center;
   height: 100vh;
   justify-content: flex-start;
+  letter-spacing: 0.1px;
 }
 
 main {
@@ -235,7 +236,7 @@ main {
 
 button {
   border-radius: 20px;
-  padding: 13px 60px;
+  padding: 11px 60px;
   color: var(--white);
   background: linear-gradient(to bottom, var(--dark-gray-blue), var(--dark-gray-blue));
   transition: all 100ms ease-in-out;
@@ -261,7 +262,6 @@ button:hover {
   background: linear-gradient(to bottom, var(--violet-blue), var(--persian-blue));
   row-gap: 5px;
   aspect-ratio: 1 / 1;
-  /* Define uma proporção de 1:1 para largura e altura */
 }
 
 .score {
@@ -324,16 +324,17 @@ button:hover {
 .scores {
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  row-gap: 12px;
 }
 
 .sum-result {
   display: flex;
   flex-direction: row;
-  border-radius: 10px;
+  border-radius: 8px;
   justify-content: space-between;
-  padding: 14px;
+  padding: 13px;
   align-items: center;
+  font-size: 12px;
 }
 
 .sum-result-label {
@@ -344,14 +345,18 @@ button:hover {
 }
 
 .sum-result-icon {
-  font-size: 14px;
+  height: 14px;
 }
 
 .sum-result-title {
   font-weight: bold;
 }
 
-.sum-result-score {}
+.sum-result-score {
+  display: flex;
+  flex-direction: row;
+  column-gap: 6px;
+}
 
 .total-score {
   color: var(--dark-gray-blue);
@@ -362,5 +367,4 @@ button:hover {
   color: black;
   opacity: 0.4;
   font-weight: bold;
-
 }
