@@ -84,4 +84,4 @@ def create_overlay(image_path, opacity=0.5):
     root.mainloop()
 
 # Caminho da imagem e nível de opacidade
-create_overlay("./order-summary-component/design/desktop-design.jpg", opacity=0.5)
+create_overlay("./order-summary-component/design/mobile-design.jpg", opacity=0.5)

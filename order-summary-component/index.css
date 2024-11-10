@@ -206,10 +206,26 @@ button {
   --dark-blue: hsl(223, 47%, 23%);
 }
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45px 30px;
+  box-sizing: border-box;
+  height: 100%;
+  row-gap: 25px;
+}
+
+.main-desc {
+  line-height: 25px;
+  color: var(--desaturated-blue);
+  font-weight: 500;
+}
+
 body {
   font-family: 'RedHatDisplay', 'sans-serif';
   margin: 0;
-  background-image: url(images/pattern-background-desktop.svg);
+  background-image: url(images/pattern-background-mobile.svg);
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center top;
@@ -221,6 +237,20 @@ body {
   row-gap: 10px;
   font-size: 16px;
   background-color: var(--pale-blue);
+}
+
+@media (min-width: 376px) {
+  body {
+    background-image: url(images/pattern-background-desktop.svg);
+  }
+
+  .card-content {
+    padding: 45px 55px;
+  }
+
+  .main-desc {
+    padding: 0 20px;
+  }
 }
 
 main {
@@ -249,24 +279,8 @@ main>img {
   font-weight: 900;
 }
 
-.main-desc {
-  line-height: 25px;
-  color: var(--desaturated-blue);
-  font-weight: 500;
-}
-
 main>span {
   line-height: 1.6em;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 45px 55px;
-  box-sizing: border-box;
-  height: 100%;
-  row-gap: 25px;
 }
 
 .card-payment {
@@ -308,6 +322,7 @@ main>span {
 }
 
 .plan-type {
+  white-space: nowrap;
   font-weight: 900;
 }
 
