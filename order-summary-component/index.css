@@ -1,8 +1,209 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  outline: none;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
 @font-face {
   font-family: 'RedHatDisplay';
   src: url('assets/fonts/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+/* Regular (400) */
+@font-face {
+  font-family: 'RedHatDisplay';
+  src: url('./assets/fonts/Red_Hat_Display/static/RedHatDisplay-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: 'RedHatDisplay';
+  src: url('./assets/fonts/Red_Hat_Display/static/RedHatDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: 'RedHatDisplay';
+  src: url('./assets/fonts/Red_Hat_Display/static/RedHatDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Black (900) */
+@font-face {
+  font-family: 'RedHatDisplay';
+  src: url('./assets/fonts/Red_Hat_Display/static/RedHatDisplay-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --pale-blue: hsl(225, 100%, 94%);
+  --bright-blue: hsl(245, 75%, 52%);
+  --very-pale-blue: hsl(225, 100%, 98%);
+  --desaturated-blue: hsl(224, 23%, 55%);
+  --dark-blue: hsl(223, 47%, 23%);
 }
 
 body {
@@ -19,6 +220,7 @@ body {
   height: 100vh;
   row-gap: 10px;
   font-size: 16px;
+  background-color: var(--pale-blue);
 }
 
 main {
@@ -42,8 +244,15 @@ main>img {
   border-top-right-radius: 20px;
 }
 
-main>h1 {
-  font-size: 30px;
+.main-title {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.main-desc {
+  line-height: 25px;
+  color: var(--desaturated-blue);
+  font-weight: 500;
 }
 
 main>span {
@@ -54,8 +263,57 @@ main>span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 55px;
+  padding: 45px 55px;
   box-sizing: border-box;
+  height: 100%;
+  row-gap: 25px;
+}
+
+.card-payment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 18px;
+  background-color: var(--very-pale-blue);
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.card-payment-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.card-payment-plan {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.change-payment {
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--bright-blue);
+}
+
+.change-payment:hover {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--bright-blue), white 30%);
+}
+
+.plan-type {
+  font-weight: 900;
+}
+
+.plan-value {
+  color: var(--desaturated-blue);
+  font-weight: 500;
 }
 
 footer {
@@ -64,4 +322,30 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.submit-btn {
+  background-color: var(--bright-blue);
+  color: white;
+  font-weight: 600;
+  height: 50px;
+  width: 100%;
+  border-radius: 14px;
+
+  -webkit-box-shadow: 0 13px 40px -15px var(--bright-blue);
+  -moz-box-shadow: 0 13px 40px -15px var(--bright-blue);
+  box-shadow: 0 13px 40px -15px var(--bright-blue);
+}
+
+.submit-btn:hover {
+  background-color: color-mix(in srgb, var(--bright-blue), white 30%);
+}
+
+.cancel-btn {
+  font-weight: 600;
+  color: var(--desaturated-blue);
+}
+
+.cancel-btn:hover {
+  color: black;
 }

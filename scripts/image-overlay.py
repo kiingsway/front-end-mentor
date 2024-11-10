@@ -25,10 +25,11 @@ def save_position(image_name, x, y):
 def create_overlay(image_path, opacity=0.5):
     root = tk.Tk()
     root.title("Image Overlay")
+    
+    # Definir o ícone do aplicativo para aparecer na barra de tarefas
+    root.iconbitmap('scripts/app_icon.ico')  # Substitua 'app_icon.ico' pelo caminho do seu ícone
 
-    def close(event): root.destroy()
-    root.bind("<Button-3>", close)
-
+    # Carregar a imagem
     image = Image.open(image_path).convert("RGBA")
     tk_image = ImageTk.PhotoImage(image)
 
@@ -51,6 +52,33 @@ def create_overlay(image_path, opacity=0.5):
         save_position(image_name, x, y)
     label.bind("<B1-Motion>", move_window)
 
+    # Menu de contexto com opções de Fechar e Minimizar
+    def show_context_menu(event):
+        context_menu.tk_popup(event.x_root, event.y_root)
+
+    # Fechar e minimizar a janela
+    def close_window():
+        root.destroy()
+
+    def minimize_window():
+        # Desativa o overrideredirect antes de minimizar
+        root.overrideredirect(False)
+        root.iconify()
+
+    # Restaurar o overrideredirect quando restaurar a janela
+    def on_deiconify(event):
+        root.overrideredirect(True)
+
+    # Criação do menu de contexto
+    context_menu = tk.Menu(root, tearoff=0)
+    context_menu.add_command(label="Minimizar", command=minimize_window)
+    context_menu.add_command(label="Fechar", command=close_window)
+
+    # Associar o menu de contexto ao botão direito do mouse
+    root.bind("<Button-3>", show_context_menu)
+    root.bind("<Map>", on_deiconify)  # Vincula a função de restauração
+
+    # Ajustes finais
     root.wait_visibility(root)
     root.wm_attributes('-alpha', opacity)
     root.mainloop()
