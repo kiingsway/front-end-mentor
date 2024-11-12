@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import filedialog
 from PIL import Image, ImageTk
 import json
 import os
@@ -83,5 +84,10 @@ def create_overlay(image_path, opacity=0.5):
     root.wm_attributes('-alpha', opacity)
     root.mainloop()
 
+
+# root = tk.Tk()
+# root.withdraw()  # Oculta a janela principal
+# file_path = filedialog.askopenfilename()
+
 # Caminho da imagem e nível de opacidade
-create_overlay("./product-preview-card-component/design/active-states.jpg", opacity=0.5)
+create_overlay("./product-preview-card-component/design/desktop-design.jpg", opacity=0.5)
