@@ -90,4 +90,5 @@ def create_overlay(image_path, opacity=0.5):
 # file_path = filedialog.askopenfilename()
 
 # Caminho da imagem e nível de opacidade
-create_overlay("./product-preview-card-component/design/desktop-design.jpg", opacity=0.5)
+create_overlay("./newsletter-signup-form-with-success-message/design/desktop-design.jpg", opacity=0.5)
+# create_overlay("./product-preview-card-component/design/desktop-design.jpg", opacity=0.5)

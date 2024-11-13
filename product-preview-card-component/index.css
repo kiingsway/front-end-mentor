@@ -271,7 +271,7 @@ main {
 .product-prices>small {
   text-decoration: line-through;
   color: var(--dark-grayish-blue);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 button {
@@ -285,6 +285,7 @@ button {
   align-items: center;
   justify-content: center;
   column-gap: 10px;
+  font-weight: 500;
 }
 
 button:hover {
