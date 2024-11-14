@@ -36,38 +36,53 @@
 <body>
   <main>
 
-    <!-- Sign-up form start -->
-    <div class="main-info">
-      <h1>Stay updated!</h1>
 
-      <span>Join 60,000+ product managers receiving monthly updates on:</span>
+    <div class="submit-email" id="submit-email">
 
-      <ul>
-        <ol>Product discovery and building what matters</ol>
-        <ol>Measuring to ensure updates are a success</ol>
-        <ol>And much more!</ol>
-      </ul>
+      <!-- Sign-up form start -->
+      <div class="main-info">
+        <h1>Stay updated!</h1>
 
-      <label for="email">Email address</label>
-      <input type="text" id="email" placeholder="email@company.com">
+        <span>Join 60,000+ product managers receiving monthly updates on:</span>
+
+        <ul>
+          <ol>Product discovery and building what matters</ol>
+          <ol>Measuring to ensure updates are a success</ol>
+          <ol>And much more!</ol>
+        </ul>
 
 
-      <button type="submit">Subscribe to monthly newsletter</button>
+        <div class="form-input">
+          <label for="email">Email address</label>
+          <input type="text" id="email" placeholder="email@company.com">
+        </div>
+
+        <div class="submit">
+          <button type="submit" onclick="submit()">Subscribe to monthly newsletter</button>
+        </div>
+
+      </div>
+
+      <div class="main-image"></div>
+      <!-- Sign-up form end -->
     </div>
 
-    <div class="main-image">
+    <div class="submitted-email" id="submitted-email">
 
-    <!-- Sign-up form end -->
 
-    <!-- Success message start -->
 
-    <!-- Thanks for subscribing! -->
+      <!-- Success message start -->
 
-    <!-- A confirmation email has been sent to ash@loremcompany.com. Please open it and click the button inside to confirm your subscription. -->
+      <h1>Thanks for subscribing!</h1>
 
-    <!-- Dismiss message -->
+      <span>A confirmation email has been sent to <span id="email-submitted-txt"></span>. Please open it and click the
+        button inside to
+        confirm your subscription.</span>
 
-    <!-- Success message end -->
+      <button type="button" onclick="dismiss()">Dismiss message</button>
+
+      <!-- Success message end -->
+    </div>
 
   </main>
   <footer>
@@ -76,6 +91,44 @@
       Coded by <a href="https://www.frontendmentor.io/profile/kiingsway" target="_blank">King Sway</a>.
     </div>
   </footer>
+
+  <script>
+
+
+    const meuInput = document.getElementById("email");
+
+    // Adiciona o evento keydown para detectar a tecla Enter
+    meuInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") submit();
+    });
+
+    function isEmailValid(email) {
+      const regex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+      return regex.test(email);
+    }
+
+    function submit() {
+
+      const input = document.getElementById("email");
+
+      if (!input.value || !input.value.trim() || !isEmailValid(input.value.trim())) {
+        input.style.borderColor = "red";
+        return;
+      }
+
+      input.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--grey');
+
+      document.getElementById("email-submitted-txt").innerHTML = input.value.trim();
+      document.getElementById("submit-email").style.display = "none";
+      document.getElementById("submitted-email").style.display = "flex";
+    }
+
+    function dismiss() {
+      document.getElementById("submitted-email").style.display = "none";
+      document.getElementById("submit-email").style.display = "flex";
+      document.getElementById("email").value = "";
+    }
+  </script>
 </body>
 
 </html>
