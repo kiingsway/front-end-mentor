@@ -45,15 +45,25 @@
 
         <span>Join 60,000+ product managers receiving monthly updates on:</span>
 
+
         <ul>
-          <ol>Product discovery and building what matters</ol>
-          <ol>Measuring to ensure updates are a success</ol>
-          <ol>And much more!</ol>
+          <li>
+            <img src="assets/images/icon-list.svg" alt="Icon list #1">
+            Product discovery and building what matters
+          </li>
+          <li>
+            <img src="assets/images/icon-list.svg" alt="Icon list #2">
+            Measuring to ensure updates are a success
+          </li>
+          <li>
+            <img src="assets/images/icon-list.svg" alt="Icon list #3">
+            And much more!
+          </li>
         </ul>
 
 
         <div class="form-input">
-          <label for="email">Email address</label>
+          <label for="email" style="cursor: pointer;" onclick="test()">Email address (click to email test)</label>
           <input type="text" id="email" placeholder="email@company.com">
         </div>
 
@@ -63,7 +73,10 @@
 
       </div>
 
-      <div class="main-image"></div>
+      <picture>
+        <source srcset="assets/images/illustration-sign-up-desktop.svg" media="(min-width: 376px)">
+        <img src="assets/images/illustration-sign-up-mobile.svg" alt="Illustration Sign Up">
+      </picture>
       <!-- Sign-up form end -->
     </div>
 
@@ -94,8 +107,13 @@
 
   <script>
 
-
     const meuInput = document.getElementById("email");
+
+    function test() {
+      meuInput.value = "aeee-email@company.com"
+    }
+
+
 
     // Adiciona o evento keydown para detectar a tecla Enter
     meuInput.addEventListener("keydown", function (event) {
@@ -128,6 +146,7 @@
       document.getElementById("submit-email").style.display = "flex";
       document.getElementById("email").value = "";
     }
+
   </script>
 </body>
 
